@@ -17,6 +17,9 @@ function App() {
   // }
 
   const addValue = () => {
+    if(count>=20){
+      setCount(0);
+    }
     //counter = counter + 1
     setCount(prevCount => prevCount + 1)
     // setCounter(prevCounter => prevCounter + 1 )
@@ -27,6 +30,10 @@ function App() {
 
   const removeValue = () => {
     setCount(count - 1)
+    if(count<=0){
+      setCount(0);
+    }
+    
   }
   return (
     <>
