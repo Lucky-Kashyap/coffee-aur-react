@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import SignUp from './SignUp';
 
 function App() {
 
@@ -17,22 +18,31 @@ function App() {
   // }
 
   const addValue = () => {
-    if(count>=20){
-      setCount(0);
-    }
+
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);
+
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);
+    // if(count>=20){
+    //   setCount(0);
+    // }
     //counter = counter + 1
     setCount(prevCount => prevCount + 1)
-    // setCounter(prevCounter => prevCounter + 1 )
-    // setCounter(prevCounter => prevCounter + 1)
-    // setCounter(prevCounter => prevCounter + 1)
+    setCount(prevCounter => prevCounter + 1 )
+    setCount(prevCounter => prevCounter + 1)
+    setCount(prevCounter => prevCounter + 1)
     
   }
 
   const removeValue = () => {
     setCount(count - 1)
-    if(count<=0){
-      setCount(0);
-    }
+    // if(count<=0){
+    //   setCount(0);
+    // }
     
   }
   return (
@@ -48,6 +58,7 @@ function App() {
       onClick={removeValue}
       >remove value {count}</button>
       <p>footer: {count}</p>
+      {/* <SignUp/> */}
     </>
   )
 }
