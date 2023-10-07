@@ -28,4 +28,8 @@ const firestore = firebase.firestore();
 export const database = {
     users:firestore.collection('users')
 }
+
+export const storage = firebase.storage();
+
+
 // firebase.app();

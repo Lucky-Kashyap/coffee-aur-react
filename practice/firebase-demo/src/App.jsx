@@ -1,4 +1,5 @@
 import "./App.css";
+import FireStorage from "./FireStorage";
 import Fireauth from "./Fireauth";
 import FirebaseData from "./FirebaseData";
 
@@ -7,7 +8,8 @@ function App() {
     <div>
       <h1>Intro to firebase firebase</h1>
       {/* <Fireauth /> */}
-      <FirebaseData/>
+      {/* <FirebaseData/> */}
+      <FireStorage/>
     </div>
   );
 }
