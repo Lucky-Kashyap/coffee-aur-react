@@ -19,9 +19,12 @@ Class 1:
            -Topics to learn ? 
                 -> Core of React (state or UI manipulation,JSX). 
                 -> Component Reusability. 
-                -> How to propagate change (Hooks).         -Additional Addon to React ? 
-                -> Router (React don't have Router).                -> State management (React don't have state management). (Redux,Redux Toolkit,Zustand,context API). 
+                -> How to propagate change (Hooks).         
+            -Additional Addon to React ? 
+                -> Router (React don't have Router).                
+                -> State management (React don't have state management). (Redux,Redux Toolkit,Zustand,context API). 
                 -> Class based component. (legacy code)
                 -> BAAS Apps : Backend as a service (Appwrite,firebase,Superbase). 
             -After React ?
-                 -> React is not a complete solution in most case (no seo,browser Render of JS,no routing).                -> framework: Next JS,Gats by,Remix.# DSA-Learning
+                 -> React is not a complete solution in most case (no seo,browser Render of JS,no routing).                
+                 -> framework: Next JS,Gats by,Remix.# DSA-Learning
