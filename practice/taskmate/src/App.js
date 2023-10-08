@@ -30,6 +30,14 @@ function App() {
   // const reset = ()=>{
   //   setCount(0);
   // }
+
+  // delete task
+
+  const handleDelete = (id)=>{
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    // this.setState({ tasks: updatedTasks });
+    setTasks(updatedTasks);
+  }
   return (
     <div className="app">
       {/* <h1>Create react app </h1> */}
@@ -52,7 +60,7 @@ function App() {
     tasks.map(item=>(
       <li key={item.id}>
         <span>{item.id} - {item.name}</span>
-        <button>Delete</button>
+        <button onClick={()=>handleDelete(item.id)}>Delete</button>
       </li>
     ))
   }
