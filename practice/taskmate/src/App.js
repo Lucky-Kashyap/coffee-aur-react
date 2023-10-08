@@ -12,8 +12,14 @@ function App() {
 
   const add = ()=>{
     // count +=1;
-    setCount(count+1);
-    console.log(count);
+    // setCount(count+1);
+    // setCount(count+1);
+    // setCount(count+1);    // it holds the value
+
+    setCount(count=>count+1);
+    setCount(count=>count+1);
+    setCount(count=>count+1);
+    // console.log(count);
   }
   const sub = ()=>{
     
