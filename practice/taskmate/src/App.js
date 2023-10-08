@@ -20,6 +20,9 @@ function App() {
     setCount(count-1);
     console.log(count);
   }
+  const reset = ()=>{
+    setCount(0);
+  }
   return (
     <div className="app">
       {/* <h1>Create react app </h1> */}
@@ -27,6 +30,7 @@ function App() {
         <p>{count}</p>
         <button onClick={add} className="add">Add</button>
         <button onClick={sub} className="sub">Sub</button>
+        <button onClick={reset} className="sub">Reset</button>
       </div>
 
       {/* <Header/>
