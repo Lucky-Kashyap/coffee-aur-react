@@ -58,7 +58,7 @@ button{
     align-items: center;
     max-width: 1000px;
     margin: auto;
-    border-bottom: 1px solid #d7d7d7;
+    border-bottom: 1px solid var(--theme-border);
     font-size: 18px;
     padding: 0px 10px;
   }
@@ -106,7 +106,7 @@ button{
   button.trigger{
     border: 0px;
     border-radius: 5px;
-    background-color: #0F3460;
+    background-color: var(--theme-button);
     color: #FFFFFF;
     padding: 5px 10px;
     cursor: pointer;
@@ -147,4 +147,19 @@ button{
   
   .hidden{
     display: none;
+  }
+
+  main{
+    min-height: 90vh;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  footer{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solod var(--theme-border);
   }
