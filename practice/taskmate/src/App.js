@@ -7,6 +7,7 @@ import Header from "./components/Header";
 // import Footer from "./components/Footer";
 
 function App() {
+  const info = "Random Text";
   // const [tasks,setTasks]=useState([{id:5271,name:"Record Lectures",completed:true},{id:7825,name:"Edit React Lectures",completed:true},{id:8489,name:"Watch Lectures",completed:false}]);
 
   // const[show,setShow]= useState(true);
@@ -46,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <TaskList title="random"/> 
+      <TaskList title="random" info={info}/> 
       
 
       {/* <h1>Create react app </h1> */}
