@@ -8,6 +8,7 @@ const Table = () => {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
   const [filterData,setFilterData] = useState([]);
+  const[page,setPage] = useState(1);
 
   useEffect(() => {
     fetchData();
@@ -43,6 +44,10 @@ const Table = () => {
 
   let itemPerPage = 10;
   let totalPageLength = Math.ceil(data.length/10);
+
+  let startIndex =(page -1) * itemPerPage;
+  let endIndex = startIndex + itemPerPage;
+ 
 //   console.log(totalPageLength);
   return (
     <div>
@@ -69,7 +74,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {filterData?.map((item) => (
+          {filterData.slice(startIndex,endIndex)?.map((item) => (
             <tr key={item.id}>
               <td>
                 <input type="checkbox" />
@@ -85,7 +90,7 @@ const Table = () => {
         </tbody>
       </table>
 
-      <Footer totalPage={totalPageLength}/>
+      <Footer page={page} setPage={setPage}  totalPage={totalPageLength}/>
     </div>
   );
 };

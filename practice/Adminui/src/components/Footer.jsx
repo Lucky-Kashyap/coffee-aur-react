@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-const Footer = ({totalPage}) => {
-    const[page,setPage] = useState(1);
+const Footer = ({totalPage,page,setPage}) => {
+    // const[page,setPage] = useState(1);
 
     const result ='';
     console.log(totalPage);
@@ -40,17 +40,17 @@ console.log(page);
 
   return (
     <div>
-        {page}
+    
         <button>Delete</button>
         <button disabled={page==1} onClick={firstPage}>{"<<"}</button>
-        <button onClick={previousPage}>{"<"}</button>
+        <button disabled={page==1} onClick={previousPage}>{"<"}</button>
         {
             pageNumber.map(page=>(
                 <button key={page.id} onClick={()=>handlePageNumber(page)}>{page}</button>
             ))
         }
-        <button onClick={nextPage}>{">"}</button>
-        <button onClick={lastPage}>{">>"}</button>
+        <button disabled={page==totalPage} onClick={nextPage}>{">"}</button>
+        <button disabled={page==totalPage} onClick={lastPage}>{">>"}</button>
     </div>
   )
 }
