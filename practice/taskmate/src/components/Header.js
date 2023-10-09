@@ -5,7 +5,7 @@ function Header() {
   return (
     <header>
       {/* <h1 className='head'>Header</h1> */}
-      <img src={logo} alt="" />
+      <img className="logo" src={logo} alt="" />
       <a href="/">Home</a>
     </header>
   );

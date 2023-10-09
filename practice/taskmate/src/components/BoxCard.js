@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import './boxCard.css';
 
 const BoxCard = ({res,children})=>{
     const [close,setClose]= useState(true);

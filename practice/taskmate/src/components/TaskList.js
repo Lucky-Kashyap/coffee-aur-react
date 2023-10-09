@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TaskCard from "./TaskCard";
 import BoxCard from "./BoxCard";
+import './taskList.css';
 
 export const TaskList = ({title,info}) => {
   const [tasks, setTasks] = useState([
@@ -15,7 +16,7 @@ export const TaskList = ({title,info}) => {
   }
 
   return (
-    <>
+    <section className="tasklist">
       <h1>Task List - {title}</h1>
       {/* <p>Info - {info}</p> */}
       <ul>
@@ -58,6 +59,6 @@ export const TaskList = ({title,info}) => {
             {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, nulla?</p> */}
         </BoxCard>
      
-    </>
+    </section>
   );
 };
