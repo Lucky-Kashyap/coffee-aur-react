@@ -5,7 +5,10 @@ import React, { useState } from "react";
 // import Footer from "./components/Footer";
 
 function App() {
-  const [tasks,setTasks]=useState([{id:5271,name:"Record Lectures",completed:false},{id:7825,name:"Edit React Lectures",completed:true},{id:8489,name:"Watch Lectures",completed:false}]);
+  const [tasks,setTasks]=useState([{id:5271,name:"Record Lectures",completed:true},{id:7825,name:"Edit React Lectures",completed:true},{id:8489,name:"Watch Lectures",completed:false}]);
+
+  const[show,setShow]= useState(true);
+  
   // let count=0;
   // const [count,setCount] = useState(0);
 
@@ -39,7 +42,7 @@ function App() {
     setTasks(updatedTasks);
   }
   return (
-    <div className="app">
+    <div className="App">
       {/* <h1>Create react app </h1> */}
       {/* <div className="box">
         <p>{count}</p>
@@ -56,14 +59,25 @@ function App() {
 
 <h1>Task List</h1>
 <ul>
+<button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
   {
+    show &&  
+      tasks.map(item=>(
+        <li key={item.id} className={item.completed ? "completed":"incomplete"}>
+          <span>{item.id} - {item.name}</span>
+          <button className="delete" onClick={()=>handleDelete(item.id)}>Delete</button>
+        </li>
+      ))
+    
+  }
+  {/* {
     tasks.map(item=>(
       <li key={item.id}>
         <span>{item.id} - {item.name}</span>
-        <button onClick={()=>handleDelete(item.id)}>Delete</button>
+        <button className="delete" onClick={()=>handleDelete(item.id)}>Delete</button>
       </li>
     ))
-  }
+  } */}
 </ul>
     </div>
   );
