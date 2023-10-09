@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import { TaskList } from "./components/TaskList";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 // import Header from "./components/Header";
 // import Card from "./components/Card";
 // import Footer from "./components/Footer";
@@ -48,6 +49,7 @@ function App() {
     <div className="App">
       <Header/>
       <TaskList title="random" info={info}/> 
+      <Footer/>
       
 
       {/* <h1>Create react app </h1> */}

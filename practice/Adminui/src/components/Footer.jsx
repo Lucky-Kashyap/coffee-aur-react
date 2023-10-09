@@ -46,7 +46,7 @@ console.log(page);
         <button onClick={previousPage}>{"<"}</button>
         {
             pageNumber.map(page=>(
-                <button onClick={()=>handlePageNumber(page)}>{page}</button>
+                <button key={page.id} onClick={()=>handlePageNumber(page)}>{page}</button>
             ))
         }
         <button onClick={nextPage}>{">"}</button>

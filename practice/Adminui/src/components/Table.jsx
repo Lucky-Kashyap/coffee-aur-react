@@ -7,10 +7,14 @@ import Footer from "./Footer";
 const Table = () => {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
+  const [filterData,setFilterData] = useState([]);
 
   useEffect(() => {
     fetchData();
   }, []);
+  useEffect(()=>{
+    filterSearchText(searchText,data);
+},[searchText]);
 
   async function fetchData() {
     try {
@@ -19,15 +23,23 @@ const Table = () => {
       );
       const res = await data.json();
       setData(res);
-      console.log(res);
+      setFilterData(res);
+    //   console.log(res);
     } catch (e) {
       console.log(e.message);
     }
   }
 
-  const handleSearch = (e) => {
-    setSearchText(e.target.value);
-  };
+//   const handleSearch = (e) => {
+//     setSearchText(e.target.value);
+//   };
+
+  const filterSearchText=(searchText,data)=>{
+    // setSearchText(e.target.value);
+    const text = data.filter(prod=>prod.name.toLowerCase().includes(searchText.toLowerCase()));
+
+    setFilterData(text);
+  }
 
   let itemPerPage = 10;
   let totalPageLength = Math.ceil(data.length/10);
@@ -40,7 +52,7 @@ const Table = () => {
         className="search-bar"
         type="text"
         value={searchText}
-        onChange={handleSearch}
+        onChange={(e)=>setSearchText(e.target.value)}
         placeholder="Search by name email or role"
       />
 
@@ -57,7 +69,7 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {data.slice(0,10)?.map((item) => (
+          {filterData?.map((item) => (
             <tr key={item.id}>
               <td>
                 <input type="checkbox" />
