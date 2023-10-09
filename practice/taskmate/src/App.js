@@ -1,13 +1,15 @@
 import "./App.css";
 import React, { useState } from "react";
+import { TaskList } from "./components/TaskList";
+import Header from "./components/Header";
 // import Header from "./components/Header";
 // import Card from "./components/Card";
 // import Footer from "./components/Footer";
 
 function App() {
-  const [tasks,setTasks]=useState([{id:5271,name:"Record Lectures",completed:true},{id:7825,name:"Edit React Lectures",completed:true},{id:8489,name:"Watch Lectures",completed:false}]);
+  // const [tasks,setTasks]=useState([{id:5271,name:"Record Lectures",completed:true},{id:7825,name:"Edit React Lectures",completed:true},{id:8489,name:"Watch Lectures",completed:false}]);
 
-  const[show,setShow]= useState(true);
+  // const[show,setShow]= useState(true);
   
   // let count=0;
   // const [count,setCount] = useState(0);
@@ -36,13 +38,17 @@ function App() {
 
   // delete task
 
-  const handleDelete = (id)=>{
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    // this.setState({ tasks: updatedTasks });
-    setTasks(updatedTasks);
-  }
+  // const handleDelete = (id)=>{
+  //   const updatedTasks = tasks.filter((task) => task.id !== id);
+  //   // this.setState({ tasks: updatedTasks });
+  //   setTasks(updatedTasks);
+  // }
   return (
     <div className="App">
+      <Header/>
+      <TaskList title="random"/> 
+      
+
       {/* <h1>Create react app </h1> */}
       {/* <div className="box">
         <p>{count}</p>
@@ -57,7 +63,7 @@ function App() {
       {/* {React.createElement('h2',{},'Heading2')}
       <h3>Created By : {username}</h3> */}
 
-<h1>Task List</h1>
+{/* <h1>Task List</h1>
 <ul>
 <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
   {
@@ -69,7 +75,7 @@ function App() {
         </li>
       ))
     
-  }
+  } */}
   {/* {
     tasks.map(item=>(
       <li key={item.id}>
@@ -78,7 +84,7 @@ function App() {
       </li>
     ))
   } */}
-</ul>
+{/* </ul> */}
     </div>
   );
 }
