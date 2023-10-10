@@ -1,16 +1,21 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './AddTask.css';
 
 const AddTask = ({task,setTask}) => {
-    const [taskValue,setTaskValue] = useState(""); 
+    // const [taskValue,setTaskValue] = useState(""); 
+
+    const taskValue = useRef("");
+
     const [progress,setProgress] = useState(false);
 
     const handleChange = (event) => {
-        setTaskValue(event.target.value);
+        // setTaskValue(event.target.value);
+        console.log(taskValue.current.value);
     }
 
     const handleReset = () => {
-        setTaskValue("");
+        // setTaskValue("");
+        taskValue.current.value="";
         setProgress(false);
     }
 
@@ -20,7 +25,7 @@ const AddTask = ({task,setTask}) => {
 
         const tasks = {
             id:Math.floor(Math.random() * 10000),
-            name:taskValue,
+            name:taskValue.current.value,
             completed:Boolean(progress)
         }
         setTask([...task,tasks]);
@@ -34,7 +39,9 @@ const AddTask = ({task,setTask}) => {
         <form onSubmit={handleSubmit}>
             {/* <label htmlFor="task">Task Name:</label> */}
             {/* <input type="text" onChange={(e) => setTaskValue(e.target.value)} name="task" id='task' autoComplete='off' placeholder='Task Name' /> */}
-            <input type="text" value={taskValue} onChange={handleChange} name="task" id='task' autoComplete='off' placeholder='Task Name' />
+            {/* <input type="text" value={taskValue} onChange={handleChange} name="task" id='task' autoComplete='off' placeholder='Task Name' /> */}
+            <input type="text" ref={taskValue} onChange={handleChange} name="task" id='task' autoComplete='off' placeholder='Task Name' />
+
 
             <select value={progress} onChange={(e)=>setProgress(e.target.value)}>
                 <option value='false'>Pending</option>
