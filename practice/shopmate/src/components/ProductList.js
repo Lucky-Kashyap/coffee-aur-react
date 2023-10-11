@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [url, setURL] = useState("http://localhost:8000/products");
 
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   // console.log(products);
 
@@ -12,25 +12,46 @@ export const ProductList = () => {
   // .then(response => response.json())
   // .then(data => setProducts(data));
 
-  useEffect(() => {
-    // console.log('Mounted');
+  // useEffect(() => {
+  //   // console.log('Mounted');
 
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, [url]);
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => setProducts(data));
+  // }, [url]);
 
-  useEffect(() => {
-    console.log(count);
-  }, [count]);
+  // useEffect(() => {
+  //   console.log(count);
+  // }, [count]);
 
   // const incrementCount=()=>{
   //     setCount(count+1);
   // }
+
+  const fetchProducts =useCallback(
+       
+  async()=>{
+    const res = await fetch(url);
+    const data = await res.json();
+    setProducts(data);
+  }
+    ,[url]);
+ 
+
+  useEffect(()=>{
+   
+
+    fetchProducts();
+
+    console.log('----');
+
+  },[fetchProducts]);
+
+
   return (
     <section>
       <div className="filter">
-        <button onClick={() => setCount(count + 1)}>{count}</button>
+        {/* <button onClick={() => setCount(count + 1)}>{count}</button> */}
         <button onClick={() => setURL("http://localhost:8000/products")}>
           All
         </button>
