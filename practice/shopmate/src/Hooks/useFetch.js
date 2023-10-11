@@ -20,6 +20,7 @@ export const useFetch = (url,_body) => {
                 setData(result);
                 setError("");
                 console.log("--------");
+                console.log(body.current.content);
             } catch(error){
                 setLoading(false);
                 setError(error.message);
