@@ -11,12 +11,14 @@ export const ProductList = () => {
     // .then(data => setProducts(data));
     
     useEffect(() => {
-        console.log('Mounted');
+        // console.log('Mounted');
 
 
         fetch("http://localhost:8000/products")
         .then(response => response.json())
         .then(data => setProducts(data));
+
+        
     },[]);
 
 
@@ -24,7 +26,11 @@ export const ProductList = () => {
         setCount(count+1);
     }
   return (
+    
     <div>
+      {
+         console.log('Render')
+      }
         <h2>ProductList</h2>
         <p>{count}</p>
         <button onClick={incrementCount}>Click Counter</button>
