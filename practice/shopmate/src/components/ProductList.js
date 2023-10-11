@@ -5,7 +5,7 @@ import loadingImage from '../assets/loading.gif';
 export const ProductList = () => {
   // const [products, setProducts] = useState([]);
   const [url, setURL] = useState("http://localhost:8000/products");
-  const {data:products,loading,error} = useFetch(url);
+  const {data:products,loading,error} = useFetch(url,{content:"ABC"});
 
   // const [count, setCount] = useState(0);
 
