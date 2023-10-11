@@ -1,44 +1,59 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 export const ProductList = () => {
-    const [products, setProducts] = useState([]);
-    // const [count,setCount] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [url, setURL] = useState("http://localhost:8000/products");
 
-    console.log(products);
+  const [count, setCount] = useState(0);
 
-    // fetch("http://localhost:8000/products")
-    // .then(response => response.json())
-    // .then(data => setProducts(data));
-    
-    useEffect(() => {
-        // console.log('Mounted');
+  // console.log(products);
 
+  // fetch("http://localhost:8000/products")
+  // .then(response => response.json())
+  // .then(data => setProducts(data));
 
-        fetch("http://localhost:8000/products")
-        .then(response => response.json())
-        .then(data => setProducts(data));
+  useEffect(() => {
+    // console.log('Mounted');
 
-        
-    },[]);
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, [url]);
 
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
 
-    // const incrementCount=()=>{
-    //     setCount(count+1);
-    // }
+  // const incrementCount=()=>{
+  //     setCount(count+1);
+  // }
   return (
     <section>
-        { products.map((product) => (
-            <div className="card" key={product.id}>
-                <p className="id">{product.id}</p>
-                <p className="name">{product.name}</p>
-                <p className="info">
-                    <span>${product.price}</span>
-                    <span className={product.in_stock ? "instock" : "unavailable"}>{product.in_stock ? "In Stock" : "Unavailable"}</span>
-                </p>
-            </div>            
-        )) }
+      <div className="filter">
+        <button onClick={() => setCount(count + 1)}>{count}</button>
+        <button onClick={() => setURL("http://localhost:8000/products")}>
+          All
+        </button>
+        <button
+          onClick={() => setURL("http://localhost:8000/products?in_stock=true")}
+        >
+          In Stock only
+        </button>
+      </div>
+      {products.map((product) => (
+        <div className="card" key={product.id}>
+          <p className="id">{product.id}</p>
+          <p className="name">{product.name}</p>
+          <p className="info">
+            <span>${product.price}</span>
+            <span className={product.in_stock ? "instock" : "unavailable"}>
+              {product.in_stock ? "In Stock" : "Unavailable"}
+            </span>
+          </p>
+        </div>
+      ))}
     </section>
-    
+
     // <div>
     //   {
     //      console.log('Render')
@@ -47,5 +62,5 @@ export const ProductList = () => {
     //     <p>{count}</p>
     //     <button onClick={incrementCount}>Click Counter</button>
     // </div>
-  )
-}
+  );
+};
