@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import { useFetch } from "../Hooks/useFetch";
+import loadingImage from '../assets/loading.gif';
 
 export const ProductList = () => {
   // const [products, setProducts] = useState([]);
   const [url, setURL] = useState("http://localhost:8000/products");
-  const {data:products} = useFetch(url);
+  const {data:products,loading,error} = useFetch(url);
 
   // const [count, setCount] = useState(0);
 
@@ -63,6 +64,11 @@ export const ProductList = () => {
           In Stock only
         </button>
       </div>
+      {/* { loading && <p>Loading products...</p>} */}
+      { loading && <p className="loading"><img src={loadingImage} alt="loading products" /></p>}
+
+      { error && <p>{error}</p>}
+
       {products && products.map((product) => (
         <div className="card" key={product.id}>
           <p className="id">{product.id}</p>
