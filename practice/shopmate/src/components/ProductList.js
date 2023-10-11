@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
+import { useFetch } from "../Hooks/useFetch";
 
 export const ProductList = () => {
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [url, setURL] = useState("http://localhost:8000/products");
+  const {data:products} = useFetch(url);
 
   // const [count, setCount] = useState(0);
 
@@ -28,24 +30,24 @@ export const ProductList = () => {
   //     setCount(count+1);
   // }
 
-  const fetchProducts =useCallback(
+  // const fetchProducts =useCallback(
        
-  async()=>{
-    const res = await fetch(url);
-    const data = await res.json();
-    setProducts(data);
-  }
-    ,[url]);
+  // async()=>{
+  //   const res = await fetch(url);
+  //   const data = await res.json();
+  //   setProducts(data);
+  // }
+  //   ,[url]);
  
 
-  useEffect(()=>{
+  // useEffect(()=>{
    
 
-    fetchProducts();
+  //   fetchProducts();
 
-    console.log('----');
+  //   console.log('----');
 
-  },[fetchProducts]);
+  // },[fetchProducts]);
 
 
   return (
@@ -61,7 +63,7 @@ export const ProductList = () => {
           In Stock only
         </button>
       </div>
-      {products.map((product) => (
+      {products && products.map((product) => (
         <div className="card" key={product.id}>
           <p className="id">{product.id}</p>
           <p className="name">{product.name}</p>
