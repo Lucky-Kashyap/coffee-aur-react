@@ -14,7 +14,7 @@ const Header = () => {
       <header>
           <div className="logo">
               <img src={logo} alt="Todo Logo" />
-              <span>Taskmate</span>
+              <span>TaskMate</span>
           </div>
           <div className="themeSelector">
               <span onClick={() => setTheme("light")} className={ theme === "light" ? "light activeTheme" : "light"}></span>
