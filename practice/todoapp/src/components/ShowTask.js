@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShowTask = ({tasks,setTasks}) => {
+const ShowTask = ({tasks,setTasks,task,setTask}) => {
 
     // const tasks = [
     //     {id: 10001, name: "TASK A", time: "2:09:01 AM 9/14/2030"},
@@ -11,11 +11,13 @@ const ShowTask = ({tasks,setTasks}) => {
     const reset=()=>{
         setTasks([]);
     }
-    const handleEdit=()=>{
-
+    const handleEdit=(id)=>{
+        const selectTask = tasks.find(task => task.id === id);
+        // console.log(selectTask); // entire object of particuler todo
+        setTask(selectTask);
     }
     const handleDelete=(id)=>{
-        const deleteTask = tasks.filter(task=>task.id!=id);
+        const deleteTask = tasks.filter(task=>task.id !==id);
 
         setTasks(deleteTask);
     }
@@ -35,7 +37,7 @@ const ShowTask = ({tasks,setTasks}) => {
                     <span className="name">{task.name}</span>
                     <span className="time">{task.time}</span>
                 </p>
-                <i className="bi bi-pencil-square" onClick={handleEdit}></i>
+                <i className="bi bi-pencil-square" onClick={()=>handleEdit(task.id)}></i>
                 <i className="bi bi-trash" onClick={()=>handleDelete(task.id)}></i>
             </li>
         )) }            
