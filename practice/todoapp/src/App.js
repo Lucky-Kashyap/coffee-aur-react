@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AddTask from './components/AddTask';
 import Header from './components/Header';
 import ShowTask from './components/ShowTask';
 
 function App() {
-  const[tasks,setTasks] = useState([]);
+  const[tasks,setTasks] = useState(JSON.parse(localStorage.getItem('task')) || []);
   const [task,setTask] = useState({});
+
+  useEffect(() => {
+    localStorage.setItem("task", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div className='App'>
      <Header/>
