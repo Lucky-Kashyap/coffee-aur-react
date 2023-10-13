@@ -1,14 +1,35 @@
-import React from 'react'
+import React from "react";
 
-const AddTask = () => {
+const AddTask = ({ tasks, setTasks }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const date = new Date();
+
+    const newTask = {
+      id: date.getTime(),
+      name: e.target.task.value,
+      time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
+    };
+
+    setTasks([...tasks, newTask]);
+    e.target.task.value = "";
+  };
+
   return (
     <section className="addTask">
-        <form>
-            <input type="text" name="task" autoComplete="off" placeholder="add task" maxLength="25" />
-            <button type="submit">Add</button>
-        </form>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="task"
+          autoComplete="off"
+          placeholder="add task"
+          maxLength="25"
+        />
+        <button type="submit">Add</button>
+      </form>
     </section>
-  )
-}
+  );
+};
 
-export default AddTask
+export default AddTask;

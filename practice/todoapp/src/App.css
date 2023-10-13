@@ -14,7 +14,7 @@ header{
   margin-bottom: 70px;
   background-color: #FFFFFF;
   border-radius: 5px;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 0 10px rgba(65, 55, 55, 0.5);
 }
 
 header .logo{
@@ -94,7 +94,7 @@ header .themeSelector .activeTheme{
   border-radius: 5px;
   background-color: #FFFFFF;
   margin: 20px auto;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 0 10px rgba(102, 87, 87, 0.5);
 }
 
 .showTask div.head{
@@ -152,7 +152,7 @@ header .themeSelector .activeTheme{
   display: flex;
   gap: 5px;
   width: 350px;
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 0 10px rgba(116, 103, 103, 0.5);
   border-radius: 5px;
   border-left: 5px solid #1365dfaf;
 }
