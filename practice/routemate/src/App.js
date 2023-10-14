@@ -1,27 +1,28 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
-import { Home } from './components/Home';
-import { ProductList } from './components/ProductList';
-import { ProductDetail } from './components/ProductDetail';
-import { Contact } from './components/Contact';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import { Admin } from './components/Admin';
-import { PageNotFound } from './components/PageNotFound';
-import { ContactIn } from './components/ContactIn';
-import { ContactEu } from './components/ContactEu';
-import { ContactUs } from './components/ContactUs';
+// import { Navigate, Route, Routes } from 'react-router-dom';
+import "./App.css";
+// import { Home } from './components/Home';
+// import { ProductList } from './components/ProductList';
+// import { ProductDetail } from './components/ProductDetail';
+// import { Contact } from './components/Contact';
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+// import { Admin } from './components/Admin';
+// import { PageNotFound } from './components/PageNotFound';
+// import { ContactIn } from './components/ContactIn';
+// import { ContactEu } from './components/ContactEu';
+// import { ContactUs } from './components/ContactUs';
+import { AllRoutes } from "./routes/AllRoutes";
 
 function App() {
-  const user = true;
-  const loggedIn = true;
+  // const user = true;
+  // const loggedIn = true;
 
   return (
     <div className="App">
-     {/* <h1>Hello</h1> */}
-     {/* <header /> */}
-     <Header/>
-     <main>
+      {/* <h1>Hello</h1> */}
+      {/* <header /> */}
+      <Header />
+      {/* <main>
      <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="products" element={<ProductList />}></Route>
@@ -31,14 +32,16 @@ function App() {
             <Route path="eu" element={<ContactEu />} />
             <Route path="us" element={<ContactUs />} />
         </Route>
-        {/* <Route path='/admin' element={<Navigate to='/'/>}></Route> */}
+        <Route path='/admin' element={<Navigate to='/'/>}></Route>
         <Route path='admin' element={user?<Admin/>: <Navigate to='/'/>}></Route>
         <Route path="*" element={<PageNotFound title="404"/>}></Route>
       </Routes>
-     </main>
-     
+     </main> */}
+
+      <AllRoutes />
+
       {/* <footer>FOOTER</footer> */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }
