@@ -8,9 +8,9 @@ function App() {
 
   return (
     <>
-    <Header/>
+    {/* <Header/>
     <Home/> 
-    <Footer/>
+    <Footer/> */}
 
     </>
   )
