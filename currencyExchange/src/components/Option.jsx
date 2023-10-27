@@ -1,11 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
-function Option({value}) {
-  return (
-    <option >
-              {value}
-            </option>
-  )
-}
+// function Option({value}) {
+//     console.log(value);
+//   return (
+//     <option>
+//               {value}
+//             </option>
+//   )
+// }
 
-export default Option;
+// export default Option;
