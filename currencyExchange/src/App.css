@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100vw;
+    height: 100vh;
+}
+.left{
+    width: 40%;
+}
+.left img{
+    padding-left: 30px;
+    border-radius: 100%;
+}
+@media only screen and (max-width:500px){
+    .left{
+        width: 70%;
+
+    }
+    .left img{
+        /* padding-left: 20px; */
+       margin: 20px;
+       border-radius: 100%;
+
+
+    }
+}
+
+@media only screen and (max-width:800px){
+    .left{
+        width: 60%;
+        
+    }
+    .left img{
+        
+        width: 90%;
+        margin: 0 40px;
+
+    }
+}

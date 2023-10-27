@@ -2,7 +2,7 @@ import { useState } from 'react';
 import {InputBox} from './components';
 import useCurrency from './hooks/useCurrency';
 import backImage from './assets/money-currency-exchange-money-transfer-stock-exchange-currencies-dollar-euro-pound-yen_228260-472.avif';
-
+import './App.css';
 function App() {
 
   const [amount, setAmount] = useState(0)
@@ -27,12 +27,15 @@ function App() {
 
   return (
     <div
-        className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
+        className="w-full h-screen flex flex-wrap justify-between items-center bg-cover bg-no-repeat"
         style={{
             backgroundImage: `url(${backImage})`,
         }}
     >
-        <div className="w-full">
+      <div className="left">
+        <img  src="https://images.unsplash.com/photo-1591033594798-33227a05780d?auto=format&fit=crop&q=80&w=1518&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+      </div>
+        <div className="w-90 p-10">
             <div className="w-full max-w-md mx-auto border border-gray-60 rounded-lg p-5 backdrop-blur-sm bg-white/30">
                 <form
                     onSubmit={(e) => {
@@ -46,7 +49,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setAmount(amount)}
+                            onCurrencyChange={(amount) => setAmount(amount)}
                             selectCurrency={from}
                             onAmountChange={(amount) => setAmount(amount)}
                         />
@@ -67,7 +70,7 @@ function App() {
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setTo(currency)}
                             onAmountChange={(amount)=>setAmount(amount)}
-                            selectCurrency={from}
+                            selectCurrency={to}
                             amountDisable
                         />
                     </div>
