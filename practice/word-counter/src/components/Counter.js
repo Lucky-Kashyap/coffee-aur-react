@@ -29,7 +29,7 @@ const Counter = () => {
         data-testid="textArea"
         placeholder="Type or paste your text" onChange={handleInput}
       ></textarea>
-      <button onClick={removeData} data-testid="clearBtn">Clear</button>
+      <button onClick={removeData} data-testid="clearBtn" disabled={charLength ? "" : "disabled"}>Clear</button>
 
       <p className="result">
         <span data-testid="charLength">Character: {charLength} </span>
