@@ -6,7 +6,7 @@ import ThemeToggle from './components/ThemeToggle'
 import Card from './components/Card'
 
 function App() {
-  const [themeMode, setThemeMode] = useState("light")
+  const [themeMode, setThemeMode] = useState(JSON.parse(localStorage.getItem('themeMode')) || 'light');
 
   const lightTheme = () => {
     setThemeMode("light")
@@ -21,6 +21,8 @@ function App() {
   useEffect(() => {
     document.querySelector('html').classList.remove("light", "dark")
     document.querySelector('html').classList.add(themeMode)
+
+    localStorage.setItem('themeMode',JSON.stringify(themeMode));
   }, [themeMode])
   
 
