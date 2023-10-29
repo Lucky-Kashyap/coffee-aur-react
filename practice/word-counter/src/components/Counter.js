@@ -12,6 +12,9 @@ const Counter = () => {
 
         setCharLength(res.length);
 
+        const word = res;
+
+        setWordLength(word);
 
 
     }
