@@ -12,9 +12,13 @@ const Counter = () => {
 
         setCharLength(res.length);
 
-        const word = res.split(' ').length;
+        // const word = res.split(' ').length;
 
-        setWordLength(word);
+        // setWordLength(word);
+
+        // res.length ? setWordLength(res.split(' ').length) : setWordLength(0);
+        res.length ? setWordLength(res.trim().split(" ").length) : setWordLength(0);
+
 
 
     }
