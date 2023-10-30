@@ -40,7 +40,7 @@ const Counter = () => {
       </button>
 
       <p className="result">
-        <span data-testid="charLength">Character: {charLength} </span>
+        <span data-testid="charLength">Character: {charLength}</span>
         <span data-testid="wordLength">Word: {wordLength}</span>
       </p>
     </section>
