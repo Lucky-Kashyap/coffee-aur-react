@@ -4,7 +4,7 @@ import Counter from '../Counter';
 
 
 describe('Counter Component Test',()=>{
-    test('render the textarea',()=>{
+    it('render the textarea',()=>{
         // const {getByTestId}   = render(<Counter/>)
         const {getByPlaceholderText}   = render(<Counter/>)
         // const textArea = getByTestId("textArea");
@@ -14,7 +14,7 @@ describe('Counter Component Test',()=>{
        
     });
     
-    test('render the result',()=>{
+    it('render the result',()=>{
         const {getByTestId } = render(<Counter/>);
     
         const charLength = getByTestId('charLength');
@@ -23,7 +23,7 @@ describe('Counter Component Test',()=>{
         expect(charLength.innerHTML).toBe("Character: 0");
     });
 
-    test("render the word result", () => {
+    it("render the word result", () => {
         render(<Counter />);
         const wordLength = screen.getByText("Word: 0");
         expect(wordLength).toBeInTheDocument();
