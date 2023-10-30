@@ -1,39 +1,43 @@
 import { useRef, useState } from "react";
 
 const Counter = () => {
-    const [charLength,setCharLength] = useState(0);
-    const [wordLength,setWordLength] = useState(0);
+  const [charLength, setCharLength] = useState(0);
+  const [wordLength, setWordLength] = useState(0);
 
-    const textInput = useRef('');
+  const textInput = useRef("");
 
+  const handleInput = () => {
+    const res = textInput.current.value;
 
-    const handleInput=()=>{
-        const res = textInput.current.value;
+    setCharLength(res.length);
 
-        setCharLength(res.length);
+    // const word = res.split(' ').length;
 
-        // const word = res.split(' ').length;
+    // setWordLength(word);
 
-        // setWordLength(word);
-
-        // res.length ? setWordLength(res.split(' ').length) : setWordLength(0);
-        res.length ? setWordLength(res.trim().split(" ").length) : setWordLength(0);
-
-
-
-    }
-    const removeData=()=>{
-        textInput.current.value='';
-        handleInput();
-    }
+    // res.length ? setWordLength(res.split(' ').length) : setWordLength(0);
+    res.length ? setWordLength(res.trim().split(" ").length) : setWordLength(0);
+  };
+  const removeData = () => {
+    textInput.current.value = "";
+    handleInput();
+  };
 
   return (
     <section className="counter">
-      <textarea ref={textInput}
+      <textarea
+        ref={textInput}
         data-testid="textArea"
-        placeholder="Type or paste your text" onChange={handleInput}
+        placeholder="Type or paste your text"
+        onChange={handleInput}
       ></textarea>
-      <button onClick={removeData} data-testid="clearBtn" disabled={charLength ? "" : "disabled"}>Clear</button>
+      <button
+        onClick={removeData}
+        data-testid="clearBtn"
+        disabled={charLength ? "" : "disabled"}
+      >
+        Clear
+      </button>
 
       <p className="result">
         <span data-testid="charLength">Character: {charLength} </span>
