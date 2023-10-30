@@ -9,4 +9,11 @@ describe('TEst HEader Component',()=>{
         expect(heading.innerHTML).toBe("Word Counter");
     });
 
+    test("render the subheading text", () => {
+        render(<Header subHeading="Free online character and word count tool." />);
+        const subHeading = screen.getByTestId("subHeading");
+        
+        expect(subHeading.innerHTML).toBe("Free online character and word count tool.");
+    });
+
 })
