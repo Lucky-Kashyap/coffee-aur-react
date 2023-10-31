@@ -36,8 +36,19 @@ getDocs(colRef)
     // }, 1000);
     // console.log(movies[0].name);
 
-    // console.log(movies);
+    console.log(movies);
   })
   .catch((e) => console.log(e));
 
-  
+  const addForm = document.querySelector('.add');
+
+  addForm.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    addDoc(colRef, {
+        name: addForm.name.value,
+        description: addForm.description.value
+    })
+    .then(() => {
+        addForm.reset();
+    });
+  })
