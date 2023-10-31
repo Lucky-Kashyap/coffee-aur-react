@@ -143,3 +143,17 @@ logoutButton.addEventListener("click",()=> {
             console.log(error);
         });
 });
+
+const loginForm = document.querySelector(".login");
+loginForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    signInWithEmailAndPassword(auth, loginForm.email.value, loginForm.password.value)
+        .then(credentials => {
+            console.log(credentials.user);
+            loginForm.reset();
+        })
+        .catch(error => {
+            console.log(error);
+        })
+})
