@@ -13,6 +13,7 @@ import {
   serverTimestamp,
   updateDoc,
 } from "firebase/firestore";
+import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut} from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDwHQtMWtq0iv_pW3ZIALe51FgOcQX6zo4",
@@ -26,6 +27,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore();
+const auth = getAuth();
 const colRef = collection(db, "movies");
 
 const qRef = query(
