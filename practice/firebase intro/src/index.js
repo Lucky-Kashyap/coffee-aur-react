@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs,addDoc,deleteDoc,doc } from "firebase/firestore";
+import { getFirestore, collection,onSnapshot, getDocs,addDoc,deleteDoc,doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDwHQtMWtq0iv_pW3ZIALe51FgOcQX6zo4",
@@ -15,15 +15,15 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, "movies");
 
-getDocs(colRef)
-  .then((data) => {
-    // console.log(data.docs)
-    let movies = [];
-    data.docs.forEach((document) => {
-      // console.log(document.data());
-      // console.log(document.id);
-      movies.push({ ...document.data(), id: document.id });
-    });
+// getDocs(colRef)
+//   .then((data) => {
+//     // console.log(data.docs)
+//     let movies = [];
+//     data.docs.forEach((document) => {
+//       // console.log(document.data());
+//       // console.log(document.id);
+//       movies.push({ ...document.data(), id: document.id });
+//     });
 
     // let box = document.querySelector(".box");
     // console.log(movies);
@@ -36,9 +36,19 @@ getDocs(colRef)
     // }, 1000);
     // console.log(movies[0].name);
 
-    console.log(movies);
-  })
-  .catch((e) => console.log(e));
+  //   console.log(movies);
+  // })
+  // .catch((e) => console.log(e));
+
+   // snap shot call automatically
+
+   onSnapshot(colRef,(data)=>{
+    let movies = [];
+    // console.log('Changes');
+    data.docs.forEach(document=>{
+      movies.push({...document.data(), id: document.id});
+    })
+   })
 
   const addForm = document.querySelector('.add');
 
@@ -54,7 +64,9 @@ getDocs(colRef)
   })
 
 
-  
+ 
+
+
 const deleteForm = document.querySelector(".delete");
 
 deleteForm.addEventListener("submit", event => {
