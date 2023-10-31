@@ -6,7 +6,12 @@ import {
   getDocs,
   addDoc,
   deleteDoc,
-  doc,query,where,orderBy,serverTimestamp
+  doc,
+  query,
+  where,
+  orderBy,
+  serverTimestamp,
+  updateDoc,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -23,7 +28,11 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, "movies");
 
-const qRef = query(colRef, where("category", "==", "drama"), orderBy("createdAt"));
+const qRef = query(
+  colRef,
+  where("category", "==", "drama"),
+  orderBy("createdAt")
+);
 
 getDocs(colRef)
   .then((data) => {
@@ -68,8 +77,8 @@ addForm.addEventListener("submit", (e) => {
     name: addForm.name.value,
     description: addForm.description.value,
     category: addForm.category.value,
-    createdAt:serverTimestamp(),
-    updatedAt: serverTimestamp()
+    createdAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
   }).then(() => {
     addForm.reset();
   });
@@ -83,5 +92,18 @@ deleteForm.addEventListener("submit", (event) => {
   const documentReference = doc(db, "movies", deleteForm.id.value);
   deleteDoc(documentReference).then(() => {
     deleteForm.reset();
+  });
+});
+
+const updateForm = document.querySelector(".update");
+updateForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const documentReference = doc(db, "movies", updateForm.id.value);
+  updateDoc(documentReference, {
+    name: updateForm.name.value,
+    updatedAt: serverTimestamp(),
+  }).then(() => {
+    updateForm.reset();
   });
 });
