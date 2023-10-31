@@ -17,9 +17,12 @@ const colRef = collection(db, "movies");
 
 getDocs(colRef).then((data) => {
   // console.log(data.docs)
-
+let movies = [];
   data.docs.forEach((document) => {
-    console.log(document.data());
-    console.log(document.id);
+    // console.log(document.data());
+    // console.log(document.id);
+    movies.push({...document.data(),id:document.id});
   });
-});
+
+  console.log(movies);
+}).catch(e=>console.log(e));
