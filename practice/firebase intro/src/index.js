@@ -130,3 +130,16 @@ registerForm.addEventListener("submit", event => {
             console.log(error);
         })
 });
+
+
+
+const logoutButton = document.querySelector(".logout");
+logoutButton.addEventListener("click",()=> {
+    signOut(auth)
+        .then(() => {
+            console.log("User Logged Out!")
+        })
+        .catch(error => {
+            console.log(error);
+        });
+});
