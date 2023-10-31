@@ -115,3 +115,18 @@ updateForm.addEventListener("submit", (event) => {
     updateForm.reset();
   });
 });
+
+
+const registerForm = document.querySelector(".register");
+registerForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    createUserWithEmailAndPassword(auth, registerForm.email.value, registerForm.password.value)
+        .then(credentials => {
+            console.log(credentials);
+            registerForm.reset();
+        })
+        .catch(error => {
+            console.log(error);
+        })
+});
