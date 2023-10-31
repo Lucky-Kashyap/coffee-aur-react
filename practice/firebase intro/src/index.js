@@ -52,3 +52,16 @@ getDocs(colRef)
         addForm.reset();
     });
   })
+
+
+  
+const deleteForm = document.querySelector(".delete");
+
+deleteForm.addEventListener("submit", event => {
+    event.preventDefault();
+    
+    const documentReference = doc(db, "movies", deleteForm.id.value);
+    deleteDoc(documentReference).then(() => {
+        deleteForm.reset();
+    });
+});
