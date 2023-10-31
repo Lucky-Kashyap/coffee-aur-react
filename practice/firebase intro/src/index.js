@@ -15,14 +15,26 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore();
 const colRef = collection(db, "movies");
 
-getDocs(colRef).then((data) => {
-  // console.log(data.docs)
-let movies = [];
-  data.docs.forEach((document) => {
-    // console.log(document.data());
-    // console.log(document.id);
-    movies.push({...document.data(),id:document.id});
-  });
+getDocs(colRef)
+  .then((data) => {
+    // console.log(data.docs)
+    let movies = [];
+    data.docs.forEach((document) => {
+      // console.log(document.data());
+      // console.log(document.id);
+      movies.push({ ...document.data(), id: document.id });
+    });
 
-  console.log(movies);
-}).catch(e=>console.log(e));
+    // let box = document.querySelector(".box");
+    // console.log(movies);
+
+    // box.innerHTML = <h1>movies[0].name</h1>;
+
+    // setTimeout(() => {
+    //   box.innerHTML = movies[0].name;
+    // }, 1000);
+    // console.log(movies[0].name);
+
+    // console.log(movies);
+  })
+  .catch((e) => console.log(e));
