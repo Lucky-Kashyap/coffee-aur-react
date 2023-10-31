@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs,addDoc,deleteDoc,doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDwHQtMWtq0iv_pW3ZIALe51FgOcQX6zo4",
@@ -28,13 +28,16 @@ getDocs(colRef)
     // let box = document.querySelector(".box");
     // console.log(movies);
 
-    // box.innerHTML = <h1>movies[0].name</h1>;
+    // box.innerHTML = movies?.map(item=><h1>item.name</h1>);
 
     // setTimeout(() => {
-    //   box.innerHTML = movies[0].name;
+      
+    //     box.innerHTML = movies[0].name;
     // }, 1000);
     // console.log(movies[0].name);
 
     // console.log(movies);
   })
   .catch((e) => console.log(e));
+
+  
