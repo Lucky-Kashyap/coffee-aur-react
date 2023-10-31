@@ -34,6 +34,12 @@ const qRef = query(
   orderBy("createdAt")
 );
 
+const documentReference = doc(db, "movies", "LtJam0uj3Dq41DudNEtk");
+
+onSnapshot(documentReference, (document) => {
+    console.log(document.data(), document.id);
+});
+
 getDocs(colRef)
   .then((data) => {
     // console.log(data.docs)
